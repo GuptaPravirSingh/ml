@@ -160,25 +160,18 @@ int main(int argc, const char * argv[]) {
         .nodeMap         = (Volume){.width=MNIST_IMG_WIDTH, .height=MNIST_IMG_HEIGHT}
     };
     
-    LayerDefinition hiddenLayer2 = {
-        .layerType       = CONVOLUTIONAL,
-        .activationType  = RELU,
-        .nodeMap         = (Volume){.width=10, .height=10, .depth=15},
-        .filter          = 5
-    };
-    
-   /* LayerDefinition hiddenLayer3 = {
-        .layerType       = CONVOLUTIONAL,
-        .activationType  = RELU,
-        .nodeMap         = (Volume){.width=12, .height=12, .depth=8},
-        .filter          = 5
-    };*/
-    
     LayerDefinition hiddenLayer = {
         .layerType       = CONVOLUTIONAL,
         .activationType  = RELU,
-        .nodeMap         = (Volume){.width=15, .height=15, .depth=15},
+        .nodeMap         = (Volume){.width=13, .height=13, .depth=5},
         .filter          = 5
+    };
+    
+    LayerDefinition hiddenLayer2 = {
+        .layerType       = CONVOLUTIONAL,
+        .activationType  = RELU,
+        .nodeMap         = (Volume){.width=6, .height=6, .depth=5},
+        .filter          = 3
     };
     
     LayerDefinition outputLayer = {
@@ -188,7 +181,7 @@ int main(int argc, const char * argv[]) {
     };
     
     // Create an array to hold all of the above layer definitions (for easier reference throught the code)
-    LayerDefinition *layerDefs = setLayerDefinitions(numberOfLayers, inputLayer, hiddenLayer, hiddenLayer2/*,hiddenLayer3*/,outputLayer);
+    LayerDefinition *layerDefs = setLayerDefinitions(numberOfLayers, inputLayer, hiddenLayer, hiddenLayer2, outputLayer);
     
     // Display details of the network definition/architecture on the screen
     outputNetworkDefinition(numberOfLayers, layerDefs);

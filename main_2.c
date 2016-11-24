@@ -163,7 +163,7 @@ int main(int argc, const char * argv[]) {
     LayerDefinition hiddenLayer2 = {
         .layerType       = CONVOLUTIONAL,
         .activationType  = RELU,
-        .nodeMap         = (Volume){.width=10, .height=10, .depth=15},
+        .nodeMap         = (Volume){.width=10, .height=10, .depth=20},
         .filter          = 5
     };
     
@@ -177,7 +177,7 @@ int main(int argc, const char * argv[]) {
     LayerDefinition hiddenLayer = {
         .layerType       = CONVOLUTIONAL,
         .activationType  = RELU,
-        .nodeMap         = (Volume){.width=15, .height=15, .depth=15},
+        .nodeMap         = (Volume){.width=15, .height=15, .depth=20},
         .filter          = 5
     };
     

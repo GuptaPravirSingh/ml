@@ -423,7 +423,12 @@ Weight getDerivative(Weight outVal, ActFctType actType){
             break;
             
         case RELU:
-            d = 1 / (1 + pow(M_E,-outVal));
+            //d = 1 / (1 + pow(M_E,-outVal));
+          /*  if(outVal<0)
+                d=0;
+            else
+                d=1;*/
+            d = 1 / (1 + exp(-outVal));
             break;
             
         case NONE:
@@ -613,7 +618,11 @@ void activateNode(Node *node, ActFctType actType){
             break;
             
         case RELU:
-            node->output =   log(1 + pow(M_E,node->output));
+           // node->output =   log(1 + pow(M_E,node->output));
+           node->output =   log(1 + exp(node->output));
+         /* if(node->output<0)
+            node->output=0;*/
+            
             break;
             
         case NONE:
